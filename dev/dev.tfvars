@@ -6,8 +6,8 @@ environment    = "dev"
 project_name   = "varx-ai-app"
 
 tags = {
-  "Owner"       = "DevTeam"
-  "CostCenter"  = "Engineering"
+  "Owner"       = "Saman Saybani"
+  "CostCenter"  = "Experiments"
   "Application" = "GenAI-ChatApp"
 }
 
