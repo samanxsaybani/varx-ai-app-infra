@@ -20,7 +20,7 @@ locals {
   sql_firewall_rule_name   = "AllowAzureServices"
 
   # # Key Vault (must be unique globally)
-  keyvault_name = "kv-${local.resource_prefix}-${random_string.unique_suffix.result}"
+  keyvault_name = "kv-${local.resource_prefix}"
 
   # # Application Insights
   insights_name = "appi-${local.resource_prefix}"
@@ -35,11 +35,4 @@ locals {
       "CreatedDate" = timestamp()
     }
   )
-}
-
-# # Generate unique suffix for globally unique resources
-resource "random_string" "unique_suffix" {
-  length  = 8
-  special = false
-  lower   = true
 }
