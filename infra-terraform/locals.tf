@@ -25,6 +25,10 @@ locals {
   # # Application Insights
   insights_name = "appi-${local.resource_prefix}"
 
+  # # Azure AI Foundry Hub & Resources
+  ml_workspace_name       = "mlw-${local.resource_prefix}"
+  container_registry_name = replace("cr${var.project_name}${var.environment}", "-", "")
+
   # # Common tags
   common_tags = merge(
     var.tags,

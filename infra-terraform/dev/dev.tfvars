@@ -37,3 +37,8 @@ sql_admin_password = "ChangeMe@12345"
 
 # # Key Vault
 keyvault_sku = "standard"
+
+# # Azure AI Foundry
+ml_workspace_public_access_enabled = true
+ml_workspace_identity_type         = "SystemAssigned"
+container_registry_sku           = "Basic"

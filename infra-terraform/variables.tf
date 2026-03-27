@@ -101,3 +101,22 @@ variable "keyvault_sku" {
   default     = "standard"
   description = "Key Vault pricing tier"
 }
+
+# # Azure AI Foundry Variables
+variable "ml_workspace_public_access_enabled" {
+  type        = bool
+  default     = true
+  description = "Enable public access to ML workspace"
+}
+
+variable "ml_workspace_identity_type" {
+  type        = string
+  default     = "SystemAssigned"
+  description = "Identity type for ML workspace (SystemAssigned or UserAssigned)"
+}
+
+variable "container_registry_sku" {
+  type        = string
+  default     = "Basic"
+  description = "Container Registry SKU"
+}

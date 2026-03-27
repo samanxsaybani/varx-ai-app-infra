@@ -80,3 +80,36 @@ output "resource_group_location" {
   value       = azurerm_resource_group.rg_ai_project.location
   description = "Resource Group location"
 }
+
+# # Azure AI Foundry Outputs
+output "ml_workspace_id" {
+  value       = azurerm_machine_learning_workspace.ml_workspace.id
+  description = "Azure AI Foundry Hub (ML Workspace) resource ID"
+}
+
+output "ml_workspace_name" {
+  value       = azurerm_machine_learning_workspace.ml_workspace.name
+  description = "Azure AI Foundry Hub (ML Workspace) name"
+}
+
+output "container_registry_name" {
+  value       = azurerm_container_registry.acr.name
+  description = "Container Registry name for hosting agents"
+}
+
+output "container_registry_login_server" {
+  value       = azurerm_container_registry.acr.login_server
+  description = "Container Registry login server"
+}
+
+output "container_registry_admin_username" {
+  value       = azurerm_container_registry.acr.admin_username
+  description = "Container Registry admin username"
+  sensitive   = true
+}
+
+output "container_registry_admin_password" {
+  value       = azurerm_container_registry.acr.admin_password
+  description = "Container Registry admin password"
+  sensitive   = true
+}
