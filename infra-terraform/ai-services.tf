@@ -11,9 +11,9 @@ resource "azurerm_cognitive_account" "openai" {
   tags = local.common_tags
 }
 
-# # OpenAI Model Deployment (GPT-4 Turbo)
+# # OpenAI Model Deployment (GPT-3.5 Turbo)
 resource "azurerm_cognitive_deployment" "openai_deployment" {
-  name                 = "gpt-4-turbo"
+  name                 = "gpt-35-turbo"
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
   model {
