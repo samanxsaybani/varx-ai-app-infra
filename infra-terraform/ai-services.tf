@@ -13,7 +13,7 @@ resource "azurerm_cognitive_account" "openai" {
 
 # # OpenAI Model Deployment (GPT-3.5 Turbo)
 resource "azurerm_cognitive_deployment" "openai_deployment" {
-  name                 = "gpt-5.4-nano"
+  name                 = "gpt-4"
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
   model {
