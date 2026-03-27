@@ -46,8 +46,8 @@ variable "openai_deployment_capacity" {
 
 variable "openai_model_version" {
   type        = string
-  default     = "gpt-4.1"
-  description = "OpenAI model version to deploy"
+  default     = "gpt-4-turbo"
+  description = "OpenAI model version to deploy (gpt-4-turbo, gpt-4, gpt-35-turbo, etc.)"
 }
 
 # # App Service Variables

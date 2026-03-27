@@ -11,16 +11,17 @@ resource "azurerm_cognitive_account" "openai" {
   tags = local.common_tags
 }
 
-# # GPT-4 Turbo Deployment
-resource "azurerm_cognitive_deployment" "gpt4_deployment" {
-  name                 = "varx-gpt4-deployment"
+# # OpenAI Model Deployment (GPT-4 Turbo)
+resource "azurerm_cognitive_deployment" "openai_deployment" {
+  name                 = "gpt-4-turbo"
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
   model {
     format  = "OpenAI"
-    name    = "text-curie-001"
+    name    = var.openai_model_version
     version = "1"
   }
+
   sku {
     name     = "Standard"
     capacity = var.openai_deployment_capacity
