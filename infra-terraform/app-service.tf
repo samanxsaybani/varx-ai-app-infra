@@ -40,8 +40,8 @@ resource "azurerm_linux_web_app" "app_service" {
 
     # # Azure OpenAI Configuration
     "AZURE_OPENAI_ENDPOINT"   = azurerm_cognitive_account.openai.endpoint
-    "AZURE_OPENAI_DEPLOYMENT" = "gpt4-turbo"
-    "AZURE_OPENAI_MODEL"      = var.gpt4_model_version
+    "AZURE_OPENAI_DEPLOYMENT" = "openai-deployment"
+    "AZURE_OPENAI_MODEL"      = var.openai_model_version
 
     # # Storage Configuration
     "STORAGE_ACCOUNT_NAME" = azurerm_storage_account.storage.name

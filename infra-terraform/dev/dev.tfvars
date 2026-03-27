@@ -16,8 +16,8 @@ ai_project_name_rg = "rg-varx-ai-project-dev"
 
 # # Azure OpenAI Service
 azure_openai_sku          = "S0"
-gpt4_deployment_capacity  = 100
-gpt4_model_version        = "gpt-4-turbo"
+openai_deployment_capacity = 100
+openai_model_version       = "gpt-4.1"
 
 # # App Service
 app_service_sku = "B2"

@@ -13,7 +13,7 @@ resource "azurerm_cognitive_account" "openai" {
 
 # # GPT-4 Turbo Deployment
 resource "azurerm_cognitive_deployment" "gpt4_deployment" {
-  name                 = "gpt4-turbo"
+  name                 = "varx-gpt4-deployment"
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
   model {
@@ -23,7 +23,7 @@ resource "azurerm_cognitive_deployment" "gpt4_deployment" {
   }
   sku {
     name     = "Standard"
-    capacity = var.gpt4_deployment_capacity
+    capacity = var.openai_deployment_capacity
   }
 
   depends_on = [azurerm_cognitive_account.openai]

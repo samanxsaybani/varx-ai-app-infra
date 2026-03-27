@@ -38,16 +38,16 @@ variable "azure_openai_sku" {
   description = "SKU for Azure OpenAI Service"
 }
 
-variable "gpt4_deployment_capacity" {
+variable "openai_deployment_capacity" {
   type        = number
   default     = 100
-  description = "Capacity (tokens per minute) for GPT-4 deployment"
+  description = "Capacity (tokens per minute) for OpenAI deployment"
 }
 
-variable "gpt4_model_version" {
+variable "openai_model_version" {
   type        = string
-  default     = "gpt-4-turbo"
-  description = "GPT-4 model version to deploy"
+  default     = "gpt-4.1"
+  description = "OpenAI model version to deploy"
 }
 
 # # App Service Variables
