@@ -29,6 +29,14 @@ resource "azurerm_container_app_environment" "neurochat_env" {
   location                   = azurerm_resource_group.rg_ai_project.location
   log_analytics_workspace_id = azurerm_log_analytics_workspace.neurochat_logs.id
 
+  # # Consumption-only workload profile avoids the free-tier cluster capacity limits
+  workload_profile {
+    name                  = "Consumption"
+    workload_profile_type = "Consumption"
+    minimum_count         = 0
+    maximum_count         = 0
+  }
+
   tags = local.common_tags
 
   depends_on = [azurerm_log_analytics_workspace.neurochat_logs]
@@ -40,6 +48,7 @@ resource "azurerm_container_app" "neurochat_backend" {
   resource_group_name          = azurerm_resource_group.rg_ai_project.name
   container_app_environment_id = azurerm_container_app_environment.neurochat_env.id
   revision_mode                = "Single"
+  workload_profile_name        = "Consumption"
 
   registry {
     server               = azurerm_container_registry.neurochat_acr.login_server
@@ -123,6 +132,7 @@ resource "azurerm_container_app" "neurochat_frontend" {
   resource_group_name          = azurerm_resource_group.rg_ai_project.name
   container_app_environment_id = azurerm_container_app_environment.neurochat_env.id
   revision_mode                = "Single"
+  workload_profile_name        = "Consumption"
 
   registry {
     server               = azurerm_container_registry.neurochat_acr.login_server
