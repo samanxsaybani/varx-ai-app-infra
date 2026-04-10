@@ -130,23 +130,27 @@ variable "neurochat_acr_sku" {
 
 variable "neurochat_azure_tenant_id" {
   type        = string
-  description = "Azure Tenant ID for NeuroChat backend authentication"
+  default     = ""
+  description = "Azure Tenant ID for NeuroChat backend authentication (set in Terraform Cloud)"
 }
 
 variable "neurochat_azure_client_id" {
   type        = string
-  description = "Azure Client ID (App Registration) for NeuroChat backend"
+  default     = ""
+  description = "Azure Client ID (App Registration) for NeuroChat backend (set in Terraform Cloud)"
 }
 
 variable "neurochat_azure_client_secret" {
   type        = string
   sensitive   = true
-  description = "Azure Client Secret for NeuroChat backend authentication"
+  default     = ""
+  description = "Azure Client Secret for NeuroChat backend authentication (set in Terraform Cloud)"
 }
 
 variable "neurochat_openai_endpoint" {
   type        = string
-  description = "Azure OpenAI endpoint URL for NeuroChat"
+  default     = ""
+  description = "Azure OpenAI endpoint URL for NeuroChat (set in Terraform Cloud)"
 }
 
 variable "neurochat_model_deployment" {
