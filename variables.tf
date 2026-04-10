@@ -120,3 +120,67 @@ variable "container_registry_sku" {
   default     = "Basic"
   description = "Container Registry SKU"
 }
+
+# # Container Apps Variables
+variable "neurochat_acr_sku" {
+  type        = string
+  default     = "Basic"
+  description = "SKU for the NeuroChat Container Registry"
+}
+
+variable "neurochat_azure_tenant_id" {
+  type        = string
+  description = "Azure Tenant ID for NeuroChat backend authentication"
+}
+
+variable "neurochat_azure_client_id" {
+  type        = string
+  description = "Azure Client ID (App Registration) for NeuroChat backend"
+}
+
+variable "neurochat_azure_client_secret" {
+  type        = string
+  sensitive   = true
+  description = "Azure Client Secret for NeuroChat backend authentication"
+}
+
+variable "neurochat_openai_endpoint" {
+  type        = string
+  description = "Azure OpenAI endpoint URL for NeuroChat"
+}
+
+variable "neurochat_model_deployment" {
+  type        = string
+  default     = "gpt-4o"
+  description = "Azure OpenAI model deployment name for NeuroChat"
+}
+
+variable "neurochat_backend_cpu" {
+  type        = number
+  default     = 0.5
+  description = "CPU allocation for NeuroChat backend container"
+}
+
+variable "neurochat_backend_memory" {
+  type        = string
+  default     = "1Gi"
+  description = "Memory allocation for NeuroChat backend container"
+}
+
+variable "neurochat_frontend_cpu" {
+  type        = number
+  default     = 0.25
+  description = "CPU allocation for NeuroChat frontend container"
+}
+
+variable "neurochat_frontend_memory" {
+  type        = string
+  default     = "0.5Gi"
+  description = "Memory allocation for NeuroChat frontend container"
+}
+
+variable "neurochat_allowed_origins" {
+  type        = string
+  default     = "*"
+  description = "CORS allowed origins for NeuroChat backend (set to frontend URL after first deploy)"
+}

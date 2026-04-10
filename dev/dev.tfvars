@@ -41,4 +41,21 @@ keyvault_sku = "standard"
 # # Azure AI Foundry
 ml_workspace_public_access_enabled = true
 ml_workspace_identity_type         = "SystemAssigned"
-container_registry_sku           = "Basic"
+container_registry_sku             = "Basic"
+
+# # Container Apps (NeuroChat)
+neurochat_acr_sku             = "Basic"
+neurochat_model_deployment    = "gpt-4o"
+neurochat_backend_cpu         = 0.5
+neurochat_backend_memory      = "1Gi"
+neurochat_frontend_cpu        = 0.25
+neurochat_frontend_memory     = "0.5Gi"
+
+# NeuroChat Azure AD App Registration credentials (set via environment or CI/CD secrets)
+# neurochat_azure_tenant_id     = ""
+# neurochat_azure_client_id     = ""
+# neurochat_azure_client_secret = ""
+# neurochat_openai_endpoint     = ""
+
+# Set to frontend URL after first deploy (get from neurochat_frontend_url output)
+# neurochat_allowed_origins = "https://ca-neurochat-frontend-dev.<unique>.swedencentral.azurecontainerapps.io"
