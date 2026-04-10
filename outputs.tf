@@ -140,6 +140,6 @@ output "neurochat_frontend_url" {
 
 # # Container Apps - Backend Internal FQDN
 output "neurochat_backend_fqdn" {
-  value       = azurerm_container_app.neurochat_backend.latest_revision_fqdn
-  description = "NeuroChat backend internal FQDN"
+  value       = azurerm_container_app.neurochat_backend.ingress[0].fqdn
+  description = "NeuroChat backend stable internal FQDN"
 }
