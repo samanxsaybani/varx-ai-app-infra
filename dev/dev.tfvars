@@ -44,6 +44,8 @@ ml_workspace_identity_type         = "SystemAssigned"
 container_registry_sku             = "Basic"
 
 # # Container Apps (NeuroChat)
+neurochat_rg_name             = "rg-neurochat-dev"
+neurochat_location            = "northeurope"
 neurochat_acr_sku             = "Basic"
 neurochat_model_deployment    = "gpt-4o"
 neurochat_backend_cpu         = 0.5

@@ -3,8 +3,8 @@
 # # Container Registry for NeuroChat images
 resource "azurerm_container_registry" "neurochat_acr" {
   name                = local.neurochat_acr_name
-  resource_group_name = azurerm_resource_group.rg_ai_project.name
-  location            = azurerm_resource_group.rg_ai_project.location
+  resource_group_name = azurerm_resource_group.rg_neurochat.name
+  location            = azurerm_resource_group.rg_neurochat.location
   sku                 = var.neurochat_acr_sku
   admin_enabled       = true
 
@@ -13,9 +13,9 @@ resource "azurerm_container_registry" "neurochat_acr" {
 
 # # Log Analytics Workspace (required by Container Apps Environment)
 resource "azurerm_log_analytics_workspace" "neurochat_logs" {
-  name                = "log-${local.resource_prefix}"
-  resource_group_name = azurerm_resource_group.rg_ai_project.name
-  location            = azurerm_resource_group.rg_ai_project.location
+  name                = "log-neurochat-${var.environment}"
+  resource_group_name = azurerm_resource_group.rg_neurochat.name
+  location            = azurerm_resource_group.rg_neurochat.location
   sku                 = "PerGB2018"
   retention_in_days   = 30
 
@@ -25,8 +25,8 @@ resource "azurerm_log_analytics_workspace" "neurochat_logs" {
 # # Container Apps Environment
 resource "azurerm_container_app_environment" "neurochat_env" {
   name                       = local.container_apps_env_name
-  resource_group_name        = azurerm_resource_group.rg_ai_project.name
-  location                   = azurerm_resource_group.rg_ai_project.location
+  resource_group_name        = azurerm_resource_group.rg_neurochat.name
+  location                   = azurerm_resource_group.rg_neurochat.location
   log_analytics_workspace_id = azurerm_log_analytics_workspace.neurochat_logs.id
 
   # # Consumption-only workload profile avoids the free-tier cluster capacity limits
@@ -45,7 +45,7 @@ resource "azurerm_container_app_environment" "neurochat_env" {
 # # NeuroChat Backend Container App
 resource "azurerm_container_app" "neurochat_backend" {
   name                         = local.container_app_backend_name
-  resource_group_name          = azurerm_resource_group.rg_ai_project.name
+  resource_group_name          = azurerm_resource_group.rg_neurochat.name
   container_app_environment_id = azurerm_container_app_environment.neurochat_env.id
   revision_mode                = "Single"
   workload_profile_name        = "Consumption"
@@ -129,7 +129,7 @@ resource "azurerm_container_app" "neurochat_backend" {
 # # NeuroChat Frontend Container App
 resource "azurerm_container_app" "neurochat_frontend" {
   name                         = local.container_app_frontend_name
-  resource_group_name          = azurerm_resource_group.rg_ai_project.name
+  resource_group_name          = azurerm_resource_group.rg_neurochat.name
   container_app_environment_id = azurerm_container_app_environment.neurochat_env.id
   revision_mode                = "Single"
   workload_profile_name        = "Consumption"

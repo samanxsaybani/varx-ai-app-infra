@@ -31,6 +31,18 @@ variable "ai_project_name_rg" {
   description = "Name of the Resource Group for the AI project"
 }
 
+variable "neurochat_rg_name" {
+  type        = string
+  default     = "rg-neurochat-dev"
+  description = "Name of the Resource Group for NeuroChat Container Apps"
+}
+
+variable "neurochat_location" {
+  type        = string
+  default     = "northeurope"
+  description = "Location for NeuroChat Container Apps resources"
+}
+
 # # Azure OpenAI Service Variables
 variable "azure_openai_sku" {
   type        = string
