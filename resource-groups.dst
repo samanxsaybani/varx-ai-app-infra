@@ -1,0 +1,13 @@
+# # # # Resource Groups # # # #
+
+# # AI Project RG
+# resource "azurerm_resource_group" "rg_ai_project" {
+#   name     = var.ai_project_name_rg
+#   location = var.location
+# }
+
+# # # NeuroChat Container Apps RG (separate region to avoid swedencentral capacity issues)
+# resource "azurerm_resource_group" "rg_neurochat" {
+#   name     = var.neurochat_rg_name
+#   location = var.neurochat_location
+# }
